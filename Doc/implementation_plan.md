@@ -5,6 +5,7 @@
 - [x] Create development workflow documentation (`Doc/development_workflow.md`)
 - [x] Set up Git branching strategy (master ← dev ← feature branches)
 - [x] Create initial feature branch (`feature/network-websocket-setup`)
+- [x] **Create dev branch and merge feature branch**
 - [x] Upload project to GitHub repository
 - [x] Configure remote tracking for all branches
 
