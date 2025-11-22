@@ -190,9 +190,9 @@ git branch -d hotfix/critical-bug
 
 ### Recent Branches:
 
-- `feature/network-websocket-setup` - **ACTIVE** - Network communication setup
-- `dev` - **READY** - Development integration branch (created and populated)
+- `dev` - **ACTIVE** - Development integration branch (latest updates)
 - `master` - Production branch
+- `feature/network-websocket-setup` - **MERGED** - Network communication setup (merged to dev, branch deleted)
 
 ### Completed Features:
 
