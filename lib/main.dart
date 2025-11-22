@@ -34,6 +34,7 @@ void main(List<String> args) async {
     runApp(
       MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (_) => CameraProvider()),
           ChangeNotifierProvider(create: (_) => PrinterProvider()),
           ChangeNotifierProvider(create: (_) => StorageProvider()),
           ChangeNotifierProvider(create: (_) => GridProvider()),

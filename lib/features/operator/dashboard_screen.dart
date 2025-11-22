@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/camera_provider.dart';
 import 'views/overview_view.dart';
 import 'views/session_view.dart';
 import 'views/approval_view.dart';
@@ -21,6 +23,15 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen> {
     ApprovalView(),
     SettingsView(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize camera to check status
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<CameraProvider>().initialize();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
