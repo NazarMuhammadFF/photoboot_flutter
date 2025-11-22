@@ -85,22 +85,22 @@ class _SettingsViewState extends State<SettingsView> {
         const SizedBox(height: 20),
         _buildSection(
           context,
-          title: 'Grid & Templates',
+          title: 'Storage Settings',
           children: [
             ListTile(
-              title: const Text('Manage Grids'),
-              subtitle: const Text('Edit layout configurations'),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              title: const Text('Local Storage Path'),
+              subtitle: const Text('C:/Users/Public/Documents/PhotoBooth'),
+              trailing: const Icon(Icons.folder_open),
               onTap: () {
-                // TODO: Navigate to Grid Editor
+                // TODO: Implement folder picker
               },
             ),
-            ListTile(
-              title: const Text('Manage Templates'),
-              subtitle: const Text('Upload overlay images'),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {
-                // TODO: Navigate to Template Manager
+            SwitchListTile(
+              title: const Text('Cloud Backup'),
+              subtitle: const Text('Upload photos to Google Drive'),
+              value: false,
+              onChanged: (val) {
+                // TODO: Implement cloud backup toggle
               },
             ),
           ],
