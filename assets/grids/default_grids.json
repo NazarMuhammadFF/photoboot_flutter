@@ -1,0 +1,55 @@
+[
+  {
+    "id": "strip_1x3",
+    "name": "Classic Strip (1x3)",
+    "canvas_width": 600,
+    "canvas_height": 1800,
+    "print_behavior": "duplicate_on_4r",
+    "slots": [
+      { "id": 1, "x": 50, "y": 50, "width": 500, "height": 400, "rotation": 0 },
+      {
+        "id": 2,
+        "x": 50,
+        "y": 470,
+        "width": 500,
+        "height": 400,
+        "rotation": 0
+      },
+      { "id": 3, "x": 50, "y": 890, "width": 500, "height": 400, "rotation": 0 }
+    ]
+  },
+  {
+    "id": "postcard_2x2",
+    "name": "Postcard Collage (2x2)",
+    "canvas_width": 1200,
+    "canvas_height": 1800,
+    "print_behavior": "normal",
+    "slots": [
+      { "id": 1, "x": 50, "y": 50, "width": 525, "height": 825, "rotation": 0 },
+      {
+        "id": 2,
+        "x": 625,
+        "y": 50,
+        "width": 525,
+        "height": 825,
+        "rotation": 0
+      },
+      {
+        "id": 3,
+        "x": 50,
+        "y": 925,
+        "width": 525,
+        "height": 825,
+        "rotation": 0
+      },
+      {
+        "id": 4,
+        "x": 625,
+        "y": 925,
+        "width": 525,
+        "height": 825,
+        "rotation": 0
+      }
+    ]
+  }
+]
