@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../../providers/camera_provider.dart';
+import '../../../../providers/printer_provider.dart';
 
 class OverviewView extends StatelessWidget {
   const OverviewView({super.key});
@@ -17,20 +20,30 @@ class OverviewView extends StatelessWidget {
           const SizedBox(height: 20),
           Row(
             children: [
-              _buildStatusCard(
-                context,
-                title: 'Camera',
-                status: 'Connected',
-                icon: Icons.camera_alt,
-                color: Colors.green,
+              Consumer<CameraProvider>(
+                builder: (context, camera, _) {
+                  final isConnected = camera.isInitialized;
+                  return _buildStatusCard(
+                    context,
+                    title: 'Camera',
+                    status: isConnected ? 'Connected' : 'Disconnected',
+                    icon: isConnected ? Icons.camera_alt : Icons.camera_alt_outlined,
+                    color: isConnected ? Colors.green : Colors.red,
+                  );
+                },
               ),
               const SizedBox(width: 16),
-              _buildStatusCard(
-                context,
-                title: 'Printer',
-                status: 'Ready',
-                icon: Icons.print,
-                color: Colors.green,
+              Consumer<PrinterProvider>(
+                builder: (context, printer, _) {
+                  final isReady = printer.selectedPrinter != null;
+                  return _buildStatusCard(
+                    context,
+                    title: 'Printer',
+                    status: isReady ? 'Ready: ${printer.selectedPrinter!.name}' : 'No Printer Selected',
+                    icon: Icons.print,
+                    color: isReady ? Colors.green : Colors.orange,
+                  );
+                },
               ),
               const SizedBox(width: 16),
               _buildStatusCard(

@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../../providers/printer_provider.dart';
+import 'package:printing/printing.dart';
 
-class SettingsView extends StatelessWidget {
+class SettingsView extends StatefulWidget {
   const SettingsView({super.key});
+
+  @override
+  State<SettingsView> createState() => _SettingsViewState();
+}
+
+class _SettingsViewState extends State<SettingsView> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<PrinterProvider>().loadPrinters();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +33,52 @@ class SettingsView extends StatelessWidget {
           context,
           title: 'Printer Settings',
           children: [
+            Consumer<PrinterProvider>(
+              builder: (context, printerProvider, child) {
+                if (printerProvider.printers.isEmpty) {
+                  return const ListTile(
+                    title: Text('No printers found'),
+                    subtitle: Text('Please check your printer connection'),
+                  );
+                }
+                return ListTile(
+                  title: const Text('Select Printer'),
+                  subtitle: Text(printerProvider.selectedPrinter?.name ?? 'None'),
+                  trailing: DropdownButton<Printer>(
+                    value: printerProvider.selectedPrinter,
+                    onChanged: (Printer? newValue) {
+                      if (newValue != null) {
+                        printerProvider.selectPrinter(newValue);
+                      }
+                    },
+                    items: printerProvider.printers.map<DropdownMenuItem<Printer>>((Printer printer) {
+                      return DropdownMenuItem<Printer>(
+                        value: printer,
+                        child: Text(
+                          printer.name,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                );
+              },
+            ),
             ListTile(
               title: const Text('Paper Size'),
               subtitle: const Text('4R (4x6 inches)'),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+              onTap: () {
+                // TODO: Implement paper size selection
+              },
             ),
             SwitchListTile(
               title: const Text('Auto-Cut'),
               subtitle: const Text('Cut paper after printing'),
               value: true,
-              onChanged: (val) {},
+              onChanged: (val) {
+                // TODO: Implement auto-cut toggle
+              },
             ),
           ],
         ),
@@ -40,13 +91,17 @@ class SettingsView extends StatelessWidget {
               title: const Text('Manage Grids'),
               subtitle: const Text('Edit layout configurations'),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+              onTap: () {
+                // TODO: Navigate to Grid Editor
+              },
             ),
             ListTile(
               title: const Text('Manage Templates'),
               subtitle: const Text('Upload overlay images'),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+              onTap: () {
+                // TODO: Navigate to Template Manager
+              },
             ),
           ],
         ),
