@@ -4,6 +4,8 @@ import '../../providers/camera_provider.dart';
 import 'views/overview_view.dart';
 import 'views/session_view.dart';
 import 'views/approval_view.dart';
+import 'views/grid_manager_view.dart';
+import 'views/template_manager_view.dart';
 import 'views/settings_view.dart';
 
 class OperatorDashboardScreen extends StatefulWidget {
@@ -21,6 +23,8 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen> {
     OverviewView(),
     SessionView(),
     ApprovalView(),
+    GridManagerView(),
+    TemplateManagerView(),
     SettingsView(),
   ];
 
@@ -59,6 +63,14 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen> {
               NavigationRailDestination(
                 icon: Icon(Icons.approval),
                 label: Text('Approval'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.grid_on),
+                label: Text('Grids'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.image),
+                label: Text('Templates'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.settings),
