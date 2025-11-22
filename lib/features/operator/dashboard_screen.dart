@@ -8,7 +8,8 @@ class OperatorDashboardScreen extends StatefulWidget {
   const OperatorDashboardScreen({super.key});
 
   @override
-  State<OperatorDashboardScreen> createState() => _OperatorDashboardScreenState();
+  State<OperatorDashboardScreen> createState() =>
+      _OperatorDashboardScreenState();
 }
 
 class _OperatorDashboardScreenState extends State<OperatorDashboardScreen> {
@@ -63,9 +64,7 @@ class _OperatorDashboardScreenState extends State<OperatorDashboardScreen> {
           ),
           const VerticalDivider(thickness: 1, width: 1),
           // Main Content
-          Expanded(
-            child: _views[_selectedIndex],
-          ),
+          Expanded(child: _views[_selectedIndex]),
         ],
       ),
     );
