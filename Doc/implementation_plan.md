@@ -52,53 +52,51 @@
 
 ## Phase 3: Operator Interface (Windows) - **PRIORITY**
 
-- [ ] **Authentication**
-  - [ ] Simple Login Screen (PIN/Password)
 - [x] **Dashboard**
   - [x] Sidebar Navigation
   - [x] Active session status monitoring (Placeholder)
   - [x] Device Status (Camera, Printer, Network) (Placeholder)
-- [ ] **Configuration Panel**
-  - [ ] **Grid Editor**: Visual tool to create/edit JSON grids
-    - [ ] Add/Remove Slots
-    - [ ] Drag & Resize Slots
-    - [ ] Save to JSON
-  - [ ] **Template Manager**: Upload PNG overlays
-  - [ ] **Printer Settings**: Select Paper Size (4R/A4), Toggle Cut Mode
-  - [ ] **Storage Settings**: Toggle Local/Cloud, Retry Failed Uploads
-- [ ] **Session Management**
-  - [ ] View live user progress (which slot they are on)
-  - [ ] Force end session / Reset User App
-- [ ] **Approval Queue**
-  - [ ] Preview generated PDF before printing
-  - [ ] Approve/Reject print buttons
+- [x] **Configuration Panel**
+  - [x] **Grid Editor**: Visual tool to create/edit JSON grids
+    - [x] Add/Remove Slots
+    - [x] Drag & Resize Slots
+    - [x] Save to JSON
+  - [x] **Template Manager**: Upload PNG overlays
+  - [x] **Printer Settings**: Select Paper Size (4R/A4), Toggle Cut Mode
+  - [x] **Storage Settings**: Toggle Local/Cloud, Retry Failed Uploads
+- [x] **Session Management**
+  - [x] View live user progress (which slot they are on)
+  - [x] Force end session / Reset User App
+- [x] **Approval Queue**
+  - [x] Preview generated PDF before printing
+  - [x] Approve/Reject print buttons
 
 ## Phase 4: User Interface (Android)
 
 - [x] **Home / Attract Screen**
   - [x] Start button
   - [ ] Video Loop / Slideshow background
-  - [ ] Blinking "Touch to Start"
+  - [x] Blinking "Touch to Start"
 - [x] **Grid Selection Screen**
   - [x] Grid View layout (2x2)
   - [x] Render thumbnails based on available JSON grids
   - [x] Selection logic
-- [ ] **Template Selection Screen**
-  - [ ] Horizontal Carousel
-  - [ ] Filter templates based on selected Grid
+- [x] **Template Selection Screen**
+  - [x] Horizontal Carousel
+  - [x] Filter templates based on selected Grid
 - [x] **Photo Capture Screen**
   - [x] Live camera preview (Mirroring ON)
-  - [ ] **Overlay**: Show template frame over camera
-  - [ ] **Countdown Timer**: Big animated 3..2..1
+  - [x] **Overlay**: Show template frame over camera
+  - [x] **Countdown Timer**: Big animated 3..2..1
   - [x] Photo taking sequence (Loop for N slots)
-  - [ ] Retake functionality
-  - [ ] **Timeout**: Auto-reset if inactive for 60s
-- [ ] **Preview & Edit Screen**
-  - [ ] Split screen: Result Preview vs Sticker Panel
-  - [ ] Drag & Drop Stickers
-- [ ] **Result Screen**
-  - [ ] Print option (Send request to Operator)
-  - [ ] QR Code display (from Cloud/Local URL)
+  - [x] Retake functionality
+  - [x] **Timeout**: Auto-reset if inactive for 60s
+- [x] **Preview & Edit Screen**
+  - [x] Split screen: Result Preview vs Sticker Panel
+  - [x] Drag & Drop Stickers
+- [x] **Result Screen**
+  - [x] Print option (Send request to Operator)
+  - [x] QR Code display (from Cloud/Local URL)
 
 ## Phase 5: Integration & State Management
 

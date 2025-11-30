@@ -27,7 +27,9 @@ class OverviewView extends StatelessWidget {
                     context,
                     title: 'Camera',
                     status: isConnected ? 'Connected' : 'Disconnected',
-                    icon: isConnected ? Icons.camera_alt : Icons.camera_alt_outlined,
+                    icon: isConnected
+                        ? Icons.camera_alt
+                        : Icons.camera_alt_outlined,
                     color: isConnected ? Colors.green : Colors.red,
                   );
                 },
@@ -39,7 +41,9 @@ class OverviewView extends StatelessWidget {
                   return _buildStatusCard(
                     context,
                     title: 'Printer',
-                    status: isReady ? 'Ready: ${printer.selectedPrinter!.name}' : 'No Printer Selected',
+                    status: isReady
+                        ? 'Ready: ${printer.selectedPrinter!.name}'
+                        : 'No Printer Selected',
                     icon: Icons.print,
                     color: isReady ? Colors.green : Colors.orange,
                   );

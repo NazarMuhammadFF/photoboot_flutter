@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../providers/grid_provider.dart';
+import '../screens/grid_editor_screen.dart';
 
 class GridManagerView extends StatelessWidget {
   const GridManagerView({super.key});
@@ -14,8 +15,54 @@ class GridManagerView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              // TODO: Implement add grid
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GridEditorScreen(
+                    onSave: (newGrid) {
+                      context.read<GridProvider>().addGrid(newGrid);
+                    },
+                  ),
+                ),
+              );
             },
+          ),
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              if (value == 'reset') {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Reset Grids'),
+                    content: const Text(
+                      'This will delete all custom grids and restore defaults. Are you sure?',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          context.read<GridProvider>().resetToDefaults();
+                          Navigator.pop(context);
+                        },
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.red,
+                        ),
+                        child: const Text('Reset'),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            },
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: 'reset',
+                child: Text('Reset to Defaults'),
+              ),
+            ],
           ),
         ],
       ),
@@ -78,13 +125,52 @@ class GridManagerView extends StatelessWidget {
                               IconButton(
                                 icon: const Icon(Icons.edit, size: 20),
                                 onPressed: () {
-                                  // TODO: Edit grid
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => GridEditorScreen(
+                                        grid: grid,
+                                        onSave: (updatedGrid) {
+                                          context
+                                              .read<GridProvider>()
+                                              .updateGrid(updatedGrid);
+                                        },
+                                      ),
+                                    ),
+                                  );
                                 },
                               ),
                               IconButton(
                                 icon: const Icon(Icons.delete, size: 20),
                                 onPressed: () {
-                                  // TODO: Delete grid
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                      title: const Text('Delete Grid'),
+                                      content: Text(
+                                        'Are you sure you want to delete "${grid.name}"?',
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            context
+                                                .read<GridProvider>()
+                                                .deleteGrid(grid.id);
+                                            Navigator.pop(context);
+                                          },
+                                          style: TextButton.styleFrom(
+                                            foregroundColor: Colors.red,
+                                          ),
+                                          child: const Text('Delete'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 },
                               ),
                             ],
