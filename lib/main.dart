@@ -8,6 +8,8 @@ import 'providers/camera_provider.dart';
 import 'providers/printer_provider.dart';
 import 'providers/storage_provider.dart';
 import 'providers/grid_provider.dart';
+import 'providers/template_provider.dart';
+import 'providers/session_provider.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +40,8 @@ void main(List<String> args) async {
           ChangeNotifierProvider(create: (_) => PrinterProvider()),
           ChangeNotifierProvider(create: (_) => StorageProvider()),
           ChangeNotifierProvider(create: (_) => GridProvider()),
+          ChangeNotifierProvider(create: (_) => TemplateProvider()),
+          ChangeNotifierProvider(create: (_) => SessionProvider()),
         ],
         child: const OperatorApp(),
       ),
@@ -50,6 +54,8 @@ void main(List<String> args) async {
           ChangeNotifierProvider(create: (_) => CameraProvider()),
           ChangeNotifierProvider(create: (_) => StorageProvider()),
           ChangeNotifierProvider(create: (_) => GridProvider()),
+          ChangeNotifierProvider(create: (_) => TemplateProvider()),
+          ChangeNotifierProvider(create: (_) => SessionProvider()),
         ],
         child: const UserApp(),
       ),
